@@ -1,0 +1,40 @@
+
+.heroSliderContainer{
+    margin-top: 100px;
+}
+
+.HeroSliderImg{
+
+background: url("../../../assets/wednesday.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+height: 85vh;
+width: 100vw;
+
+
+}
+.heroRating{
+    font-size: 1.5rem;
+}
+.HeroBox{
+
+position: relative;
+top: 60%;
+left: 5%;
+
+}
+.starIcon{
+    color: #c89227;
+}
+.watchNowBtn{
+
+    padding: 1.2rem 4rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    background-color: rgb(169, 14, 14);
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+
+}

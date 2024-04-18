@@ -1,0 +1,26 @@
+.homeContainer{
+
+}
+
+.homeHeadingContainer{
+
+margin: 2rem;
+
+
+}
+
+.homeHeadingContainer h1{
+
+font-size: clamp(3rem, 3rem + 1vw , 5rem);
+text-align: center;
+
+}
+
+.homeCardContainer{
+
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+gap: 1rem;
+
+    
+}

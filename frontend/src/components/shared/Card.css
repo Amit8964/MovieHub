@@ -1,0 +1,38 @@
+
+.cardBox{
+    width: 24rem;
+    height: 37rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #191919;
+    border-radius: 5px;
+}
+.cardImg{
+
+background-color: rgb(219, 178, 13);
+height: 30rem;
+width: 22rem;
+display: flex;
+justify-content: center;
+align-items: center;
+
+
+}
+
+.cardImg-image{
+
+    height:29rem;
+    width: 21rem;
+
+}
+.cardButton{
+    padding: 1rem 4rem;
+    margin-top: 1rem;
+    transition: all .5s ease-in-out;
+}
+.cardButton:hover{
+    transform: scale(1.05);
+}
