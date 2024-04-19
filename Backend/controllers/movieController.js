@@ -4,8 +4,8 @@ const uploadMovie = async (req, res) => {
 
   try {
     const { name, description } = req.body;
-    let imagePath = req.files['image'][0].path
-    let videoPath = req.files['video'][0].path
+    let imagePath = req.files['image'][0].path;
+    let videoPath = req.files['video'][0].path;
 
     const Movie = new movie({ name, description, image: imagePath, video: videoPath });
     let data = await Movie.save();
@@ -37,10 +37,10 @@ const getMovies = async (req, res) => {
 const deleteMovie = async (req, res) => {
   let dMovie = await movie.findByIdAndDelete(req.params.id)
   if (dMovie) {
-    res.json({ messege: "movie deleted successfully", success: true })
+    res.json({ messege: "Movie deleted successfully", success: true })
   }
   else {
-    res.json({ messege: "somthing went wrong", success: false })
+    res.json({ messege: "Somthing went wrong", success: false })
   }
 
 }
