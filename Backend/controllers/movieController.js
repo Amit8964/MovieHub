@@ -7,12 +7,13 @@ const uploadMovie = async (req,res)=>{
   
         try {
           const {name, description } = req.body;
-          const imagePath = req.file.path; // Image path
-          const videoPath = req.file.path; // Video path
+         let imagePath = req.files['image'][0].path
+         let videoPath =  req.files['video'][0].path
+
+         console.log(typeof(imagePath));
       
-          // Save movie data to MongoDB, along with the image and video paths
-          // Example using Mongoose:
-          const Movie = new movie({ name, description, imagePath, videoPath });
+     
+          const Movie = new movie({ name, description, image:imagePath, video:videoPath });
           let data = await Movie.save();
 
           if(data){
@@ -34,9 +35,38 @@ const uploadMovie = async (req,res)=>{
       }
 
 
+const getMovies = async (req,res)=>{
+let movies = await movie.find();
+res.json(movies);
+}
+
+const deleteMovie = async (req,res)=>{
+let dMovie = await movie.findByIdAndDelete(req.params.id)
+if(dMovie){
+  res.json({messege:"movie deleted successfully",success:true})
+}
+else{
+  res.json({messege:"somthing went wrong", success:false})
+}
+
+}
+
+const updateMovie = async (req,res)=>{
+
+  let uMovie = await movie.findByIdAndUpdate(req.params.id, req.body);
+  if(uMovie){
+res.json({messege:"movie updated successfully", success:true})
+
+  }
+  else{
+    res.json({messege:"somthing went wrong", success:false})
+  }
+
+}
 
 
-      module.exports = {uploadMovie}
+
+      module.exports = {uploadMovie, getMovies, deleteMovie, updateMovie}
 
 
 
