@@ -9,6 +9,7 @@ import { Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { userLogout } from "../../slices/userSlice";
+import { clamp } from "framer-motion";
 
 
 const Header = ()=>{
@@ -37,7 +38,7 @@ return <>
 
         return <li>{key}</li>
     })}
-    <button onClick={()=>{dispatch(userLogout())}}  style={{fontSize:"1.8rem",backgroundColor:"transparent",color:"red",border: '2px solid red',borderRadius:"8px",cursor:"pointer", marginLeft:"20px"}}><li>Log Out</li></button>
+    <button onClick={()=>{dispatch(userLogout())}}  style={{fontSize:".5rem",backgroundColor:"transparent",color:"red",border: '2px solid red',borderRadius:"8px",cursor:"pointer", marginLeft:"20px"}}><li>Log Out</li></button>
 
 </ul>
 }

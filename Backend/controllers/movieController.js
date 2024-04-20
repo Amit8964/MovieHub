@@ -30,7 +30,8 @@ const uploadMovie = async (req, res) => {
 
 
 const getMovies = async (req, res) => {
-  let movies = await movie.find();
+  const page = parseInt(req.params.page);
+  let movies = await movie.find().skip((page-1)*10).limit(10);
   res.json(movies);
 }
 

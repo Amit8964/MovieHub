@@ -23,18 +23,20 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-const verifyToken = (req, res, next)=>{
-
-const token = req.token;
+const verifyToken = async (req, res, next)=>{
+const token = req.body.token;
+console.log(token)
+console.log("test")
 if(!token){
   res.status(401).send("Access denied");
 }
 else{
-  const verified = jwt.verify(token, "imcypher");
+  const verified = jwt.verify(token, "iamcypher");
   if(verified){
     next();
   }
   else{
+    
     res.status(401).send("Unauthorized Token")
   }
   
@@ -48,7 +50,7 @@ else{
 
 // POST endpoint for uploading movie with image and video
 router.post("/uploadmovie", upload.fields([{ name: 'image' }, { name: 'video' }]), uploadMovie);
-router.get("/getmovies", getMovies);
+router.post("/getmovies/:page", verifyToken, getMovies);
 router.get("/deletemovie/:id", deleteMovie)
 router.post("/updatemovie/:id", updateMovie)
 router.get("/upload", (req,res)=>{
