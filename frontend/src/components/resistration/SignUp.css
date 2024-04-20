@@ -49,7 +49,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
+    overflow: hidden;
 }
 
 .login-input-container input::placeholder{
@@ -72,7 +72,7 @@ font-weight: 100;
     transition: all .5s ease-in-out;
     font-size: 2rem;
     color: rgb(190, 190, 190);
-
+overflow: hidden;
 
 }
 .login-input-container input:focus{
@@ -90,9 +90,11 @@ font-weight: 100;
     color: red;
     border: 2px solid red;
     border-radius: 8px;
+    cursor: pointer;
 }
 .login-box-container p{
 
 font-size: 1.6rem;
+margin-top: 20px;
 
 }

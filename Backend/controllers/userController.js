@@ -13,10 +13,11 @@ else{
     let User =  new user(req.body);
 let userData = await User.save();
 if(userData){
+    console.log(userData)
     res.json({messege:"User Created Successfully", success:true});
 }
 else{
-    res.json({messege:"Somthing went wrong"})
+    res.status(501).json({messege:"Somthing went wrong"})
 }
 
 }
@@ -36,10 +37,10 @@ const loginUser = async (req, res) => {
 
               const token = jwt.sign({
                 email: userData.email
-            }, 'your_secret_key', { expiresIn: '1h' });
+            }, 'iamcypher', { expiresIn: '1h' });
 
 
-            res.json({ user: userData.email, token:token });
+            res.json({ userData, userlogin:true, token:token,message: "User Logged In Successfully" });
 
             } else {
                 res.send({ userlogin: false, message: "password was incorrect" })
@@ -51,7 +52,7 @@ const loginUser = async (req, res) => {
             userData.comparePassword(req.body.password, checker)
         }
         else {
-            res.send({ adminlogin: false, message: "User Not Found" })
+            res.send({ userlogin: false, message: "User Not Found" })
         }
 
     }

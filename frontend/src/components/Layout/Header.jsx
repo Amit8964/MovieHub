@@ -6,13 +6,18 @@ import { useMediaQuery } from "usehooks-ts";
 import Hamburger from "./Hamburger";
 import Hero from "../home/hero/Hero";
 import { Outlet } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { userLogout } from "../../slices/userSlice";
 
 
 const Header = ()=>{
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
 
 const match = useMediaQuery('(max-width: 1050px)')
-
 console.log(match)
 
 
@@ -32,6 +37,7 @@ return <>
 
         return <li>{key}</li>
     })}
+    <button onClick={()=>{dispatch(userLogout())}}  style={{fontSize:"1.8rem",backgroundColor:"transparent",color:"red",border: '2px solid red',borderRadius:"8px",cursor:"pointer", marginLeft:"20px"}}><li>Log Out</li></button>
 
 </ul>
 }
