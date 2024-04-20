@@ -8,7 +8,7 @@ import axios from "axios"
 import { useEffect, useState } from "react";
 
 
-let arr = [1,2,3,4,5,6,7,8,9,78,9,7,8];
+let arr = [1,2,3,4,5,6,7,8,9,78,9,7,8,9,10];
 
 
 const Home = ()=>{
@@ -29,7 +29,6 @@ if(!isLogin) navigate("/login");
 useEffect(()=>{
 
     let token = window.localStorage.getItem("token")
-
     axios.post("http://localhost:4000/getmovies/1", {token}).then((resp)=>{
 
 setMovieData(resp.data);
@@ -48,21 +47,15 @@ console.log(resp.data);
     <Hero/>
 
 <div className="homeHeadingContainer">
-
 <h1>Popular  <span style={{color:"red"}}>Collection</span></h1>
-
 </div>
-
     <div className="homeCardContainer">
     {arr.map((key)=>{
 
         return <Card/>
     })}
-
     </div>
-
     <div className="nextButtonsContainer">
-
         {/* i will do it later */}
     </div>
    
