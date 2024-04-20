@@ -3,7 +3,6 @@ var jwt = require('jsonwebtoken');
 
 const setUser = async (req,res)=>{
 
-
 let data = await user.findOne({email:req.body.email})
 
 if(data){
