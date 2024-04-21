@@ -61,12 +61,16 @@ window.localStorage.clear();
 <div className="homeHeadingContainer">
 <h1>Popular  <span style={{color:"red"}}>Collection</span></h1>
 </div>
-    <div className="homeCardContainer">
-    {arr.map((key)=>{
 
-        return <Card/>
+{movieData ?
+    <div className="homeCardContainer">
+    {movieData.map((key)=>{
+
+        return <Card  { ...key }/>
     })}
-    </div>
+    </div> : <h1 style={{marginTop:"400px", textAlign:"center"}}>Loading..</h1>
+
+}
     <div className="nextButtonsContainer">
         {/* i will do it later */}
     </div>

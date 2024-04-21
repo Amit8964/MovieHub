@@ -1,0 +1,31 @@
+
+
+.showMovieContainer{
+
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));;
+    gap: 10px;
+    
+
+
+
+}
+
+.showMovieLeft{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem;
+
+
+}
+.showMovieRight{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1.5rem 1rem;
+
+}
