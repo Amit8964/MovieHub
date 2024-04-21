@@ -43,13 +43,13 @@ const Login = ()=>{
               console.log(data.data);
               window.localStorage.setItem("token",data.data.token)
               dispatch(userLogin(data.data))
-              navigate("/home")                                                                     
+              navigate("/")                                                                     
           }
           else {
               //if user login is not true set a message to show on the screen
-              console.log(data)     
+                 
               if (data.data.message.length > 0) {   
-               
+                console.log(data.data.message) 
                   // toast.error(` ${data.data.message} `, {
                   //   position: "top-right",
                   //   autoClose: 5000,
@@ -71,15 +71,6 @@ const Login = ()=>{
       }
   })       
 }
-
-
-
-
-
-
-
-
-
   
     return <>
 

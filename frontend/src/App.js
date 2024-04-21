@@ -11,7 +11,7 @@ function App() {
 
 <Route path="/" element={<Header/>}>
 
-<Route path="/home" element={<Home/>}/>
+<Route path="/" element={<Home/>}/>
 
 </Route>
 

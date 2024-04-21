@@ -37,7 +37,7 @@ const loginUser = async (req, res) => {
 
               const token = jwt.sign({
                 email: userData.email
-            }, 'iamcypher', { expiresIn: '1h' });
+            }, 'iamcypher', { expiresIn: '4h' });
 
 
             res.json({ userData, userlogin:true, token:token,message: "User Logged In Successfully" });

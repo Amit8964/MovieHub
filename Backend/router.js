@@ -7,7 +7,6 @@ const router = express.Router();
 var jwt = require('jsonwebtoken');
 
 
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     let name = file.fieldname;
@@ -24,6 +23,10 @@ const upload = multer({ storage: storage });
 
 
 const verifyToken = async (req, res, next)=>{
+  try{
+
+
+  
 const token = req.body.token;
 console.log(token)
 console.log("test")
@@ -41,6 +44,12 @@ else{
   }
   
 }
+}
+catch(err){
+
+res.json({message:"Token Expired", success:false})
+
+}
 
 
 }
@@ -51,6 +60,10 @@ else{
 // POST endpoint for uploading movie with image and video
 router.post("/uploadmovie", upload.fields([{ name: 'image' }, { name: 'video' }]), uploadMovie);
 router.post("/getmovies/:page", verifyToken, getMovies);
+
+//temporary enpoit for testing perpose
+router.get("/getmovies/:page", getMovies);
+
 router.get("/deletemovie/:id", deleteMovie)
 router.post("/updatemovie/:id", updateMovie)
 router.get("/upload", (req,res)=>{

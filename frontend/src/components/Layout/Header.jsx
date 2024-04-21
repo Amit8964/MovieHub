@@ -9,18 +9,23 @@ import { Outlet } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { userLogout } from "../../slices/userSlice";
-import { clamp } from "framer-motion";
 
 
 const Header = ()=>{
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
-
-
 const match = useMediaQuery('(max-width: 1050px)')
 console.log(match)
 
+
+const Logout = ()=>{
+
+window.localStorage.clear();
+dispatch(userLogout());
+
+
+}
 
 
 return <>
@@ -38,7 +43,7 @@ return <>
 
         return <li>{key}</li>
     })}
-    <button onClick={()=>{dispatch(userLogout())}}  style={{fontSize:".5rem",backgroundColor:"transparent",color:"red",border: '2px solid red',borderRadius:"8px",cursor:"pointer", marginLeft:"20px"}}><li>Log Out</li></button>
+    <button onClick={Logout}  style={{fontSize:".5rem",backgroundColor:"transparent",color:"red",border: '2px solid red',borderRadius:"8px",cursor:"pointer", marginLeft:"20px"}}><li>Log Out</li></button>
 
 </ul>
 }

@@ -3,12 +3,17 @@ const app = express();
 const cors = require("cors")
 const router = require("./router")
 const mongoose = require("mongoose")
+const path = require("path")
 
+
+
+app.use('/assets', express.static(path.join(__dirname, '/assets')));
 app.use(cors({
 
 "Access-Control-Allow-Origin":"*"
 
 }));
+
 app.use(express.json());
 app.use("/", router);
 

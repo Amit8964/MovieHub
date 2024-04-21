@@ -4,15 +4,17 @@ const uploadMovie = async (req, res) => {
 
   try {
     const { name, description } = req.body;
-    let imagePath = req.files['image'][0].path;
-    let videoPath = req.files['video'][0].path;
+    let imagePath = req.files['image'][0].path.replace(/\\/g , "/");
+    let videoPath = req.files['video'][0].path.replace(/\\/g , "/");
+  
 
     const Movie = new movie({ name, description, image: imagePath, video: videoPath });
     let data = await Movie.save();
 
     if (data) {
-      res.status(200).json({ message: 'Movie uploaded successfully' });
-      console.log("ok")
+      console.log(imagePath)
+      res.status(200).json({ message: 'Movie uploaded successfully', success:true });
+      
 
     }
     else {
